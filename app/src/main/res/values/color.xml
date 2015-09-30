@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gray_white">#ffcccccc</color>
+    <color name="progressStart">#0cfed3</color>
+    <color name="progressEnd">#fd0279</color>
+    <color name="progressBg">#cbd6dd</color>
+    <color name="popText">#3d9df5</color>
+    <color name="popNoText">#000000</color>
+</resources>

@@ -29,6 +29,7 @@ public class InformationActivity extends Activity {
         return true;
     }
 
+    //这是一个测试git的存在，我擦怎么没有呢
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

@@ -21,6 +21,8 @@ import com.czd.xinbei.adapter.SyPagerAdapter;
 import com.czd.xinbei.fragment.SyJPOneFragment;
 import com.czd.xinbei.listener.MyJPXMPageChangeListener;
 import com.czd.xinbei.listener.SyMyViewPagerListener;
+import com.czd.xinbei.slidingmenu.SlidingMenu;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +45,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private int offset=0;
     private int  currIndex=0;
     private int btmWidth ;
+    private SlidingMenu menu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +68,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         initFragmentViewPager();
         //精品项目
         initJPXM();
+    }
+    private void initMenu(){
+        menu=(SlidingMenu)findViewById(R.id.slidingMenu);
     }
     /**
      * 初始化上面（新三板那块）的viewpager
@@ -200,6 +206,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 break;
             case R.id.sy_head:
                 Toast.makeText(this,"此时应该出来个menu",Toast.LENGTH_LONG).show();
+                menu.toggle();
                 break;
             case R.id.search_words:
 //                Toast.makeText(this,"尼玛",Toast.LENGTH_LONG).show();

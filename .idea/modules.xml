@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/xinbei2.0.iml" filepath="$PROJECT_DIR$/xinbei2.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xinbei1.0.iml" filepath="$PROJECT_DIR$/xinbei1.0.iml" />
     </modules>
   </component>
 </project>

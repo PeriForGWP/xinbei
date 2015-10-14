@@ -3,7 +3,6 @@ import android.content.Intent;
 import android.graphics.Matrix;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -70,6 +69,7 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
         initFragmentViewPager();
         //精品项目
         initJPXM();
+        initMenu();
     }
 
     /**
@@ -82,11 +82,10 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
         menu=getSlidingMenu();
         menu.setMode(SlidingMenu.LEFT);
         menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
-        menu.setShadowWidth(R.dimen.shadow_width);
-        menu.setShadowDrawable(R.drawable.shadow);
-        menu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
+//        menu.setShadowWidth(R.dimen.shadow_width);
+//        menu.setShadowDrawable(R.drawable.shadow);
+        menu.setBehindOffsetRes(R.dimen.gmenu_offset);
         menu.setFadeDegree(0.35f);
-        menu.setSecondaryMenu(R.drawable.shadow);
     }
     /**
      * 初始化上面（新三板那块）的viewpager
@@ -221,7 +220,7 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
                 viewPager3.setCurrentItem(0);
                 break;
             case R.id.sy_head:
-                Toast.makeText(this,"此时应该出来个menu",Toast.LENGTH_LONG).show();
+//                Toast.makeText(this,"此时应该出来个menu",Toast.LENGTH_LONG).show();
                 menu.showMenu();
                 break;
             case R.id.search_words:

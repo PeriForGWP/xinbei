@@ -18,20 +18,22 @@ import com.czd.xinbei.R;
 import com.czd.xinbei.adapter.SyFragmentAdapter;
 import com.czd.xinbei.adapter.SyJPFragmentAdapter;
 import com.czd.xinbei.adapter.SyPagerAdapter;
+import com.czd.xinbei.fragment.MenuFragment;
 import com.czd.xinbei.fragment.SyJPOneFragment;
 import com.czd.xinbei.listener.MyJPXMPageChangeListener;
 import com.czd.xinbei.listener.SyMyViewPagerListener;
-import com.czd.xinbei.slidingmenu.SlidingMenu;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends FragmentActivity implements View.OnClickListener{
+public class MainActivity extends SlidingFragmentActivity implements View.OnClickListener{
 
     //头像,搜索的那个放大镜图片
     private ImageView headImage,searchImage,cursor;
-
+    //主页面的三个viewpager
     private ViewPager viewPager2,viewPager1,viewPager3;
     //用来装下面的那个点
    private ImageView[] tips1,tips2;
@@ -41,13 +43,13 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     TextView tv_zhtj,tv_zxsx,tv_jezg,tv_gzzd,searchText;
     //图片资源id
     private int[] imgIdArray1,imgIdArray2;
+    private SlidingMenu menu;
     private Fragment fragment;
     private int offset=0;
     private int  currIndex=0;
     private int btmWidth ;
-    private SlidingMenu menu;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.sy);
@@ -69,8 +71,22 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         //精品项目
         initJPXM();
     }
-    private void initMenu(){
-        menu=(SlidingMenu)findViewById(R.id.slidingMenu);
+
+    /**
+     * 初始化侧滑菜单
+     */
+    public  void initMenu(){
+        Fragment MenuFragment=new MenuFragment();
+        setBehindContentView(R.layout.menu_frame);
+        getSupportFragmentManager().beginTransaction().replace(R.id.menu_frame,MenuFragment).commit();
+        menu=getSlidingMenu();
+        menu.setMode(SlidingMenu.LEFT);
+        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
+        menu.setShadowWidth(R.dimen.shadow_width);
+        menu.setShadowDrawable(R.drawable.shadow);
+        menu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
+        menu.setFadeDegree(0.35f);
+        menu.setSecondaryMenu(R.drawable.shadow);
     }
     /**
      * 初始化上面（新三板那块）的viewpager
@@ -206,7 +222,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 break;
             case R.id.sy_head:
                 Toast.makeText(this,"此时应该出来个menu",Toast.LENGTH_LONG).show();
-                menu.toggle();
+                menu.showMenu();
                 break;
             case R.id.search_words:
 //                Toast.makeText(this,"尼玛",Toast.LENGTH_LONG).show();
